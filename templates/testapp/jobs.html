@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if jobs_list %}{{ jobs_list.0.get_city_display }} Jobs{% else %}{{ city|title }} Jobs{% endif %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <h1 class="page-title">
+        {% if jobs_list %}
+        {{ jobs_list.0.get_city_display }} Jobs Information  <!--this line for first object of Queryset and display first object city-->
+        {% else %}
+        No Jobs in {{ city|title }} !!!
+        {% endif %}
+    </h1>
+
+    {% if jobs_list %}
+    <table class="jobs-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Company</th>
+                <th>Title</th>
+                <th>Eligibility</th>
+                <th>Salary</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for val in jobs_list %}
+            <tr>
+                <td>{{ val.date }}</td>
+                <td>{{ val.company }}</td>
+                <td>{{ val.title }}</td>
+                <td>{{ val.eligibility }}</td>
+                <td>{{ val.salary }}</td>
+                <td>{{ val.address }}</td>
+                <td>{{ val.email }}</td>
+                <td>{{ val.phonenumber }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+</body>
+
+</html>

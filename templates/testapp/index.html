@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Portal</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Find Jobs Near You</h1>
+        <p>Continuous job updates every hour</p>
+    </div>
+
+    <div class="links">
+        <a href="{% url 'jobs_view' 'HYD' %}">Hyderabad Jobs</a>
+        <a href="{% url 'jobs_view' 'BNG' %}">Bangalore Jobs</a>
+        <a href="{% url 'jobs_view' 'PUN' %}">Pune Jobs</a>
+        {# {% url 'url_name' arg1 arg2 ... %} dynamically generates /jobs/HYD/ #}
+    </div>
+</div>
+
+</body>
+</html>
